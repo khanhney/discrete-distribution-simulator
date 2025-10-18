@@ -1,0 +1,5 @@
+{
+  "name": "Discrete Distribution Simulator",
+  "description": "An interactive web application for simulating and visualizing fundamental discrete probability distributions: Bernoulli, Binomial, and Poisson. Helps users intuitively understand these distributions through simulation, theoretical comparison, and adjustable parameters.",
+  "requestFramePermissions": []
+}
