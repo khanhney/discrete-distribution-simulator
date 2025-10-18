@@ -150,7 +150,7 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
       </div>
 
       <div className="lg:col-span-5 bg-white p-6 rounded-lg border border-gray-200">
-        <div className="border-b border-gray-200">
+        <div className="border-b border-gray-200 overflow-x-auto">
             <nav className="-mb-px flex space-x-6" aria-label="Tabs">
                 {TABS.filter(tab => tab.available).map(tab => (
                      <button

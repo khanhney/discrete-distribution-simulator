@@ -81,21 +81,21 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-light-bg font-sans">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-dark-text">
+          <h1 className="text-2xl sm:text-3xl font-bold text-dark-text">
             Discrete Distribution Simulator
           </h1>
-          <p className="text-light-text mt-1">
+          <p className="text-light-text mt-1 text-sm sm:text-base">
             An Interactive Guide to the Probabilistic Foundations of AI
           </p>
         </div>
       </header>
-      <main className="py-10">
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div className="bg-primary-50 border-l-4 border-primary-500 text-primary-800 p-4 rounded-md mb-8 shadow-sm" role="alert">
+      <main className="py-6 sm:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-primary-50 border-l-4 border-primary-500 text-primary-800 p-4 rounded-md mb-6 md:mb-8 shadow-sm" role="alert">
                 <p className="font-bold">Welcome to the Probability Simulator!</p>
-                <p>In AI and Machine Learning, we deal with uncertainty, not certainty. Understanding these distributions is the first step to modeling the randomness in data, which allows us to build intelligent predictive models. Let's explore!</p>
+                <p className="text-sm sm:text-base">In AI and Machine Learning, we deal with uncertainty, not certainty. Understanding these distributions is the first step to modeling the randomness in data, which allows us to build intelligent predictive models. Let's explore!</p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
                 <div className="lg:col-span-1">
                     <ControlPanel
                     distribution={distribution}
@@ -108,13 +108,13 @@ const App: React.FC = () => {
                     />
                 </div>
                 <div className="lg:col-span-2">
-                    <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
-                        <div className="flex justify-between items-center mb-4">
+                    <div className="p-4 sm:p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                        <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-4 gap-3 sm:gap-2">
                         <h2 className="text-xl font-semibold text-dark-text">Simulation Results</h2>
                         {simulationData.length > 0 && 
                             <button 
                                 onClick={() => setSimulationKey(k => k + 1)}
-                                className="px-4 py-2 text-sm font-medium text-primary-600 bg-primary-100 rounded-md hover:bg-primary-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                                className="px-4 py-2 text-sm font-medium text-primary-600 bg-primary-100 rounded-md hover:bg-primary-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 self-start sm:self-center"
                             >
                             Try Again
                             </button>

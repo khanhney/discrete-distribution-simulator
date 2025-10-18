@@ -58,8 +58,18 @@ const SimulationChart: React.FC<SimulationChartProps> = ({ data, showTheoretical
           margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="k" name="Number of Successes" label={{ value: 'Number of Successes / Events (k)', position: 'insideBottom', offset: -15 }} />
-          <YAxis name="Probability" label={{ value: 'Frequency / Probability', angle: -90, position: 'insideLeft', offset: -10 }} tickFormatter={(tick) => `${(tick * 100).toFixed(0)}%`} />
+          <XAxis 
+            dataKey="k" 
+            name="Number of Successes" 
+            label={{ value: 'Number of Successes / Events (k)', position: 'insideBottom', offset: -15, style: { fontSize: '0.9rem' } }} 
+            tick={{fontSize: '0.8rem'}}
+          />
+          <YAxis 
+            name="Probability" 
+            label={{ value: 'Frequency / Probability', angle: -90, position: 'insideLeft', offset: -10, style: { fontSize: '0.9rem' } }} 
+            tickFormatter={(tick) => `${(tick * 100).toFixed(0)}%`} 
+            tick={{fontSize: '0.8rem'}}
+          />
           <Tooltip content={<CustomTooltip />} />
           <Legend wrapperStyle={{paddingTop: 20}} />
           <Bar dataKey="frequency" fill="#3b82f6" name="Simulated Frequency" />
