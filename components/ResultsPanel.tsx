@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChartDataPoint, Distribution, AppParams } from '../types';
+import { ChartDataPoint, DiscreteDistribution, AppParams } from '../types';
 import Tooltip from './Tooltip';
 import InfoIcon from './InfoIcon';
 
@@ -8,11 +8,11 @@ interface ResultsPanelProps {
   chartData: ChartDataPoint[];
   expectedValue: number;
   variance: number;
-  distribution: Distribution;
+  distribution: DiscreteDistribution;
   params: AppParams;
 }
 
-const getEducationalContent = (distribution: Distribution, params: AppParams, expectedValue: number, simulationData: number[]) => {
+const getEducationalContent = (distribution: DiscreteDistribution, params: AppParams, expectedValue: number, simulationData: number[]) => {
     const observedMean = simulationData.reduce((a, b) => a + b, 0) / simulationData.length;
 
     const interpretation = `After ${simulationData.length} simulations, the observed average is ${observedMean.toFixed(3)}, which is very close to the theoretical expected value E(X) = ${expectedValue.toFixed(3)}. This demonstrates the Law of Large Numbers: as the number of trials increases, the sample average converges to the theoretical expectation.`;
@@ -21,14 +21,14 @@ const getEducationalContent = (distribution: Distribution, params: AppParams, ex
     let mlApplication = '';
 
     switch (distribution) {
-        case Distribution.Bernoulli:
+        case DiscreteDistribution.Bernoulli:
             mlApplication = 'In AI, the Bernoulli distribution is the cornerstone of models that predict binary outcomes (0/1, yes/no). For example, a Logistic Regression model for email classification outputs a probability "p" that a given email is spam. Each email is treated as a Bernoulli trial.';
             break;
-        case Distribution.Binomial:
+        case DiscreteDistribution.Binomial:
             relationships = 'Connection: When the number of trials "n" is large and the probability "p" is very small, the Binomial distribution can be approximated by the Poisson distribution with λ = n * p. Try setting n=50 and p=0.02 (so λ=1) and compare its shape to a Poisson(λ=1) distribution.';
             mlApplication = 'The Binomial distribution is crucial for evaluating classifier performance. If a model has 90% accuracy (p=0.9) and you test it on 10 new samples (n=10), this distribution tells you the probability of getting exactly 8, 9, or 10 correct predictions.';
             break;
-        case Distribution.Poisson:
+        case DiscreteDistribution.Poisson:
             relationships = 'Connection: When the average rate λ is large (typically λ > 20), the Poisson distribution can be approximated by the Normal (Gaussian) distribution. Try increasing λ and watch the histogram become more symmetric and bell-shaped.';
             mlApplication = 'Poisson is used to model count data in regression models (Poisson Regression). For example, predicting the number of bicycles rented from a station per hour, based on weather and time of day. It is essential when the target variable is a non-negative integer count.';
             break;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Distribution, AppParams, BernoulliParams, BinomialParams, PoissonParams } from '../types';
+import { DiscreteDistribution, AppParams, BernoulliParams, BinomialParams, PoissonParams } from '../types';
 import Tooltip from './Tooltip';
 import InfoIcon from './InfoIcon';
 
 interface ControlPanelProps {
-  distribution: Distribution;
-  setDistribution: (dist: Distribution) => void;
+  distribution: DiscreteDistribution;
+  setDistribution: (dist: DiscreteDistribution) => void;
   params: AppParams;
   setParams: React.Dispatch<React.SetStateAction<AppParams>>;
   runSimulation: () => void;
@@ -25,7 +25,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   
   const renderParams = () => {
     switch(distribution) {
-      case Distribution.Bernoulli:
+      case DiscreteDistribution.Bernoulli:
         const bernoulliParams = params as BernoulliParams;
         return (
             <>
@@ -50,7 +50,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
                 />
             </>
         );
-      case Distribution.Binomial:
+      case DiscreteDistribution.Binomial:
         const binomialParams = params as BinomialParams;
         return (
           <>
@@ -92,7 +92,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
             />
           </>
         );
-      case Distribution.Poisson:
+      case DiscreteDistribution.Poisson:
         const poissonParams = params as PoissonParams;
          return (
           <>
@@ -140,7 +140,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
           1. Select a Distribution
         </label>
         <div className="grid grid-cols-3 gap-2">
-          {Object.values(Distribution).map((dist) => (
+          {Object.values(DiscreteDistribution).map((dist) => (
             <button
               key={dist}
               onClick={() => setDistribution(dist)}

@@ -1,5 +1,5 @@
 {
-  "name": "Discrete Distribution Simulator",
-  "description": "An interactive web application for simulating and visualizing fundamental discrete probability distributions: Bernoulli, Binomial, and Poisson. Helps users intuitively understand these distributions through simulation, theoretical comparison, and adjustable parameters.",
+  "name": "Probability & Statistics Simulator for ML/AI",
+  "description": "Comprehensive interactive learning platform for probability and statistics - foundation for Machine Learning and AI. Features: Discrete distributions (Bernoulli, Binomial, Poisson), Continuous distributions (Normal, t-Distribution), Central Limit Theorem simulator, Z-Score calculator, EDA tools (histogram, correlation), and guided learning path from beginner to ML applications.",
   "requestFramePermissions": []
 }
