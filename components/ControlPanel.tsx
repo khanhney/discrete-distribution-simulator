@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DiscreteDistribution, AppParams, BernoulliParams, BinomialParams, PoissonParams } from '../types';
 import Tooltip from './Tooltip';
 import InfoIcon from './InfoIcon';
@@ -26,10 +26,10 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   const [lambdaInputValue, setLambdaInputValue] = useState('4');
 
   useEffect(() => {
-    if (distribution === Distribution.Binomial) {
+    if (distribution === DiscreteDistribution.Binomial) {
       setNInputValue(String((params as BinomialParams).n));
     }
-    if (distribution === Distribution.Poisson) {
+    if (distribution === DiscreteDistribution.Poisson) {
       setLambdaInputValue(String((params as PoissonParams).lambda));
     }
   }, [params, distribution]);
@@ -184,7 +184,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         <label className="block text-sm font-medium text-gray-700 mb-2">
           1. Select a Distribution
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {Object.values(DiscreteDistribution).map((dist) => (
             <button
               key={dist}
