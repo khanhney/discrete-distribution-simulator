@@ -83,7 +83,7 @@ const ContinuousDistributions: React.FC = () => {
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center">
                   μ (Mean)
-                  <Tooltip text="Trung bình của phân phối - điểm trung tâm của đường cong">
+                  <Tooltip text="Mean of the distribution - center point of the curve">
                     <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                   </Tooltip>
                 </label>
@@ -111,7 +111,7 @@ const ContinuousDistributions: React.FC = () => {
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center">
                   σ (Std Dev)
-                  <Tooltip text="Độ lệch chuẩn - độ rộng của đường cong">
+                  <Tooltip text="Standard deviation - width of the curve">
                     <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                   </Tooltip>
                 </label>
@@ -139,7 +139,7 @@ const ContinuousDistributions: React.FC = () => {
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center">
                   df (Degrees of Freedom)
-                  <Tooltip text="Bậc tự do. df càng lớn thì t-distribution càng gần với normal distribution">
+                  <Tooltip text="Degrees of freedom. Larger df makes t-distribution closer to normal distribution">
                     <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                   </Tooltip>
                 </label>
@@ -168,7 +168,7 @@ const ContinuousDistributions: React.FC = () => {
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center">
                   μ (Location)
-                  <Tooltip text="Vị trí trung tâm của phân phối">
+                  <Tooltip text="Center location of the distribution">
                     <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                   </Tooltip>
                 </label>
@@ -196,7 +196,7 @@ const ContinuousDistributions: React.FC = () => {
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center">
                   σ (Scale)
-                  <Tooltip text="Tham số scale của phân phối">
+                  <Tooltip text="Scale parameter of the distribution">
                     <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                   </Tooltip>
                 </label>
@@ -226,7 +226,7 @@ const ContinuousDistributions: React.FC = () => {
         return {
           title: 'Normal (Gaussian) Distribution',
           formula: 'f(x) = (1 / (σ√(2π))) × e^(-(x-μ)²/(2σ²))',
-          useCase: 'Mô tả nhiều hiện tượng tự nhiên, cơ sở cho CLT',
+          useCase: 'Describes many natural phenomena, foundation for CLT',
           mlApplications: [
             'Feature Scaling (StandardScaler)',
             'Weight Initialization (Xavier/He)',
@@ -238,10 +238,10 @@ const ContinuousDistributions: React.FC = () => {
       case ContinuousDistribution.TDistribution:
         return {
           title: 'Student\'s t-Distribution',
-          formula: 't-distribution PDF với df degrees of freedom',
-          useCase: 'Dùng khi cỡ mẫu nhỏ (n < 30) hoặc không biết σ',
+          formula: 't-distribution PDF with df degrees of freedom',
+          useCase: 'Used when sample size is small (n < 30) or σ is unknown',
           mlApplications: [
-            'Confidence Intervals với small samples',
+            'Confidence Intervals with small samples',
             'Hypothesis Testing (t-tests)',
             'Robust regression',
             'Bayesian inference'
@@ -259,10 +259,10 @@ const ContinuousDistributions: React.FC = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-500 p-6 rounded-lg shadow-sm">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          📈 Phân phối Liên tục (Continuous Distributions)
+          📈 Continuous Distributions
         </h2>
         <p className="text-gray-700">
-          Khám phá Normal và t-Distribution - nền tảng của thống kê và machine learning!
+          Explore Normal and t-Distribution - foundations of statistics and machine learning!
         </p>
       </div>
 
@@ -315,7 +315,7 @@ const ContinuousDistributions: React.FC = () => {
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md border">
               <label className="text-sm font-medium text-gray-700 flex items-center">
                 Show Theoretical PDF
-                <Tooltip text="Hiển thị hàm mật độ xác suất lý thuyết">
+                <Tooltip text="Display theoretical probability density function">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -334,7 +334,7 @@ const ContinuousDistributions: React.FC = () => {
           {/* Info Box */}
           {simulationData.length > 0 && (
             <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h4 className="text-sm font-semibold text-gray-800 mb-2">📊 Thống kê mẫu:</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">📊 Sample Statistics:</h4>
               <div className="text-xs text-gray-700 space-y-1">
                 <p><strong>Sample Mean:</strong> {calculateMean(simulationData).toFixed(3)}</p>
                 <p><strong>Sample Std Dev:</strong> {calculateStdDev(simulationData).toFixed(3)}</p>
@@ -400,10 +400,10 @@ const ContinuousDistributions: React.FC = () => {
             <div className="bg-white p-12 rounded-lg shadow-md border border-gray-200 text-center">
               <div className="text-6xl mb-4">📈</div>
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                Chưa có dữ liệu
+                No Data Yet
               </h3>
               <p className="text-gray-500">
-                Chọn phân phối và nhấn "Run Simulation" để bắt đầu!
+                Select a distribution and click "Run Simulation" to start!
               </p>
             </div>
           )}

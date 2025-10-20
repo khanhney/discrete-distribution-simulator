@@ -54,7 +54,7 @@ const ZScoreCalculator: React.FC = () => {
           📊 Z-Score Calculator & Normal Distribution
         </h2>
         <p className="text-gray-700">
-          Tính Z-score, xác suất và percentile. Công cụ thiết yếu để chuẩn hóa dữ liệu và so sánh các biến.
+          Calculate Z-score, probability and percentile. Essential tool for data normalization and variable comparison.
         </p>
       </div>
 
@@ -62,7 +62,7 @@ const ZScoreCalculator: React.FC = () => {
         {/* Input Panel */}
         <div className="lg:col-span-1 bg-white p-6 rounded-lg shadow-md border border-gray-200 space-y-6">
           <h3 className="text-xl font-semibold text-gray-800 border-b pb-2">
-            Nhập dữ liệu
+            Input Data
           </h3>
 
           {/* Mode Selection */}
@@ -97,7 +97,7 @@ const ZScoreCalculator: React.FC = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
               μ (Mean)
-              <Tooltip text="Trung bình của phân phối">
+              <Tooltip text="Mean of the distribution">
                 <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
               </Tooltip>
             </label>
@@ -114,7 +114,7 @@ const ZScoreCalculator: React.FC = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
               σ (Standard Deviation)
-              <Tooltip text="Độ lệch chuẩn của phân phối">
+              <Tooltip text="Standard deviation of the distribution">
                 <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
               </Tooltip>
             </label>
@@ -133,7 +133,7 @@ const ZScoreCalculator: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
                 X (Value)
-                <Tooltip text="Giá trị cần tính Z-score">
+                <Tooltip text="Value to calculate Z-score for">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -175,12 +175,12 @@ const ZScoreCalculator: React.FC = () => {
             onClick={handleCalculate}
             className="w-full py-3 px-4 text-base font-semibold text-white bg-gradient-to-r from-green-600 to-teal-600 rounded-md hover:from-green-700 hover:to-teal-700 transition-all shadow-md"
           >
-            🔍 Tính toán
+            🔍 Calculate
           </button>
 
           {/* Formula Display */}
           <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-            <h4 className="text-sm font-semibold text-gray-800 mb-2">📐 Công thức:</h4>
+            <h4 className="text-sm font-semibold text-gray-800 mb-2">📐 Formula:</h4>
             <div className="text-xs text-gray-700 space-y-1 font-mono">
               <p>Z = (X - μ) / σ</p>
               {!rangeMode && result && (
@@ -224,7 +224,7 @@ const ZScoreCalculator: React.FC = () => {
                 <div className="text-sm font-medium opacity-90 mb-1">Z-Score</div>
                 <div className="text-3xl font-bold">{result.zScore.toFixed(3)}</div>
                 <div className="text-xs opacity-80 mt-2">
-                  {result.zScore > 0 ? `+${Math.abs(result.zScore).toFixed(2)}` : result.zScore.toFixed(2)} độ lệch chuẩn
+                  {result.zScore > 0 ? `+${Math.abs(result.zScore).toFixed(2)}` : result.zScore.toFixed(2)} std deviations
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ const ZScoreCalculator: React.FC = () => {
                 <div className="text-sm font-medium opacity-90 mb-1">P(X ≤ {input.value})</div>
                 <div className="text-3xl font-bold">{result.probability.toFixed(4)}</div>
                 <div className="text-xs opacity-80 mt-2">
-                  Xác suất ≤ {input.value}
+                  Probability ≤ {input.value}
                 </div>
               </div>
 
@@ -255,37 +255,37 @@ const ZScoreCalculator: React.FC = () => {
               </div>
               <div className="text-5xl font-bold mb-2">{probabilityBetween.toFixed(4)}</div>
               <div className="text-sm opacity-90">
-                {(probabilityBetween * 100).toFixed(2)}% dữ liệu nằm trong khoảng này
+                {(probabilityBetween * 100).toFixed(2)}% of data falls in this range
               </div>
             </div>
           )}
 
           {/* Educational Content */}
           <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-400 p-5 rounded-lg">
-            <h4 className="font-semibold text-gray-800 mb-3">💡 Ứng dụng trong ML/AI:</h4>
+            <h4 className="font-semibold text-gray-800 mb-3">💡 ML/AI Applications:</h4>
             <ul className="text-sm text-gray-700 space-y-2">
               <li className="flex items-start">
                 <span className="mr-2">🎯</span>
-                <span><strong>Feature Scaling:</strong> StandardScaler trong sklearn sử dụng Z-score</span>
+                <span><strong>Feature Scaling:</strong> StandardScaler in sklearn uses Z-score</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">📊</span>
-                <span><strong>Outlier Detection:</strong> |Z| &gt; 3 thường được coi là outlier</span>
+                <span><strong>Outlier Detection:</strong> |Z| &gt; 3 is typically considered an outlier</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">⚖️</span>
-                <span><strong>Normalization:</strong> Đưa features về cùng scale cho Neural Networks</span>
+                <span><strong>Normalization:</strong> Brings features to same scale for Neural Networks</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2">🔬</span>
-                <span><strong>Hypothesis Testing:</strong> So sánh giá trị quan sát với expected</span>
+                <span><strong>Hypothesis Testing:</strong> Compare observed values with expected</span>
               </li>
             </ul>
           </div>
 
           {/* 68-95-99.7 Rule */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-            <h4 className="font-semibold text-gray-800 mb-3">📏 Quy tắc 68-95-99.7 (Empirical Rule)</h4>
+            <h4 className="font-semibold text-gray-800 mb-3">📏 68-95-99.7 Rule (Empirical Rule)</h4>
             <div className="space-y-2">
               {[
                 { range: '[μ - σ, μ + σ]', percent: 68, color: 'blue', values: [input.mean - input.stdDev, input.mean + input.stdDev] },

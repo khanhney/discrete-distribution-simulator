@@ -19,54 +19,54 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
       case DiscreteDistribution.Bernoulli:
         return {
           theory: {
-            title: "Phân phối Bernoulli - Binary Outcome",
-            definition: "Phân phối Bernoulli mô tả thí nghiệm chỉ có 2 kết quả: Thành công (1) hoặc Thất bại (0)",
+            title: "Bernoulli Distribution - Binary Outcome",
+            definition: "Bernoulli distribution describes an experiment with only 2 outcomes: Success (1) or Failure (0)",
             formula: "P(X = 1) = p, P(X = 0) = 1 - p",
             parameters: [
-              { name: "p", meaning: "Xác suất thành công", range: "0 ≤ p ≤ 1", example: "p = 0.6 nghĩa là 60% chance thành công" }
+              { name: "p", meaning: "Probability of success", range: "0 ≤ p ≤ 1", example: "p = 0.6 means 60% chance of success" }
             ],
             statistics: [
-              { name: "E[X] (Expected Value)", formula: "p", meaning: "Giá trị trung bình kỳ vọng" },
-              { name: "Var[X] (Variance)", formula: "p(1-p)", meaning: "Độ biến động của kết quả" }
+              { name: "E[X] (Expected Value)", formula: "p", meaning: "Expected mean value" },
+              { name: "Var[X] (Variance)", formula: "p(1-p)", meaning: "Variability of outcomes" }
             ],
             keyInsights: [
-              "🎯 Là building block cơ bản nhất của xác suất",
-              "🔄 Mỗi thí nghiệm độc lập với nhau",
-              "💡 Variance lớn nhất khi p = 0.5 (maximum uncertainty)",
-              "📊 Khi p gần 0 hoặc 1, kết quả càng predictable"
+              "🎯 Most fundamental building block of probability",
+              "🔄 Each trial is independent",
+              "💡 Variance is maximum when p = 0.5 (maximum uncertainty)",
+              "📊 When p is close to 0 or 1, outcome is more predictable"
             ]
           },
           examples: [
             {
-              title: "🪙 Toss Coin (Tung đồng xu)",
-              description: "Tung một đồng xu công bằng",
+              title: "🪙 Coin Toss",
+              description: "Tossing a fair coin",
               params: { p: 0.5 },
-              scenario: "Success = Mặt ngửa (Heads), Failure = Mặt sấp (Tails)",
-              interpretation: "Với p=0.5, mỗi lần tung có 50% chance ra ngửa. Đây là trường hợp uncertainty tối đa.",
-              realData: "Nếu tung 100 lần, expect ~50 lần ngửa (có thể 45-55 do randomness)"
+              scenario: "Success = Heads, Failure = Tails",
+              interpretation: "With p=0.5, each toss has 50% chance of heads. This is maximum uncertainty case.",
+              realData: "If tossed 100 times, expect ~50 heads (could be 45-55 due to randomness)"
             },
             {
               title: "📧 Email Spam Detection",
-              description: "AI classifier phân loại email",
+              description: "AI classifier categorizes email",
               params: { p: 0.15 },
-              scenario: "Success = Email là spam, Failure = Email hợp lệ",
-              interpretation: "Với p=0.15, model dự đoán 15% emails là spam. Mỗi email là một Bernoulli trial.",
-              realData: "Dataset thực: Gmail filters ~50 billion spam emails/day với accuracy ~99.9%"
+              scenario: "Success = Email is spam, Failure = Email is legitimate",
+              interpretation: "With p=0.15, model predicts 15% emails are spam. Each email is a Bernoulli trial.",
+              realData: "Real dataset: Gmail filters ~50 billion spam emails/day with accuracy ~99.9%"
             },
             {
               title: "🎯 Click-Through Rate",
-              description: "User click vào quảng cáo",
+              description: "User clicks on advertisement",
               params: { p: 0.03 },
               scenario: "Success = User clicks ad, Failure = User ignores",
-              interpretation: "CTR = 3% là typical cho display ads. Mỗi impression là một Bernoulli trial.",
+              interpretation: "CTR = 3% is typical for display ads. Each impression is a Bernoulli trial.",
               realData: "Industry average: Search ads ~3-5%, Display ads ~0.5-1%, Social media ~1-2%"
             },
             {
               title: "🏥 Medical Test Result",
-              description: "Test xem bệnh nhân có disease",
+              description: "Testing if patient has disease",
               params: { p: 0.02 },
-              scenario: "Success = Positive (có bệnh), Failure = Negative",
-              interpretation: "Prevalence 2% trong population. Test từng người = Bernoulli trial.",
+              scenario: "Success = Positive (has disease), Failure = Negative",
+              interpretation: "Prevalence 2% in population. Testing each person = Bernoulli trial.",
               realData: "COVID-19 rapid test: Sensitivity ~85%, Specificity ~98%"
             }
           ],
@@ -74,20 +74,20 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
             ml: [
               {
                 name: "🤖 Logistic Regression",
-                description: "Output layer của binary classifier",
-                explanation: "Model outputs probability p cho class 1. Prediction là một Bernoulli(p) random variable.",
+                description: "Output layer of binary classifier",
+                explanation: "Model outputs probability p for class 1. Prediction is a Bernoulli(p) random variable.",
                 code: "sigmoid(z) = 1/(1+e^(-z)) → p\nPrediction ~ Bernoulli(p)"
               },
               {
                 name: "🎲 Dropout in Neural Networks",
                 description: "Randomly drop neurons during training",
-                explanation: "Mỗi neuron có probability p bị drop. Drop/keep quyết định theo Bernoulli(p).",
+                explanation: "Each neuron has probability p of being dropped. Drop/keep decision follows Bernoulli(p).",
                 code: "mask = Bernoulli(keep_prob=0.5)\noutput = input * mask"
               },
               {
                 name: "📊 A/B Testing",
                 description: "Test version A vs B",
-                explanation: "User chọn A hoặc B. Conversion = Bernoulli(p_A) vs Bernoulli(p_B).",
+                explanation: "User chooses A or B. Conversion = Bernoulli(p_A) vs Bernoulli(p_B).",
                 code: "H0: p_A = p_B\nH1: p_A ≠ p_B"
               }
             ],
@@ -103,41 +103,41 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
       case DiscreteDistribution.Binomial:
         return {
           theory: {
-            title: "Phân phối Nhị thức - Counting Successes",
-            definition: "Đếm số lần thành công trong n thí nghiệm Bernoulli độc lập, mỗi thí nghiệm có xác suất thành công p",
+            title: "Binomial Distribution - Counting Successes",
+            definition: "Counts number of successes in n independent Bernoulli trials, each with success probability p",
             formula: "P(X = k) = C(n,k) × p^k × (1-p)^(n-k)",
             parameters: [
-              { name: "n", meaning: "Số lần thử", range: "n ≥ 1 (integer)", example: "n = 10 nghĩa là thực hiện 10 lần" },
-              { name: "p", meaning: "Xác suất thành công mỗi lần", range: "0 ≤ p ≤ 1", example: "p = 0.3 nghĩa là 30% chance mỗi lần" },
-              { name: "k", meaning: "Số lần thành công muốn tính", range: "0 ≤ k ≤ n", example: "k = 7 nghĩa là thành công đúng 7 lần" }
+              { name: "n", meaning: "Number of trials", range: "n ≥ 1 (integer)", example: "n = 10 means perform 10 times" },
+              { name: "p", meaning: "Success probability each time", range: "0 ≤ p ≤ 1", example: "p = 0.3 means 30% chance each time" },
+              { name: "k", meaning: "Number of successes to calculate", range: "0 ≤ k ≤ n", example: "k = 7 means exactly 7 successes" }
             ],
             statistics: [
-              { name: "E[X]", formula: "n × p", meaning: "Expected số lần thành công" },
-              { name: "Var[X]", formula: "n × p × (1-p)", meaning: "Variability tăng theo n" },
-              { name: "Mode", formula: "floor((n+1)p)", meaning: "Giá trị xảy ra nhiều nhất" }
+              { name: "E[X]", formula: "n × p", meaning: "Expected number of successes" },
+              { name: "Var[X]", formula: "n × p × (1-p)", meaning: "Variability increases with n" },
+              { name: "Mode", formula: "floor((n+1)p)", meaning: "Most likely value" }
             ],
             keyInsights: [
-              "🎯 Là tổng của n Bernoulli độc lập: X = X₁ + X₂ + ... + Xₙ",
-              "📊 Symmetric khi p=0.5, skewed khi p gần 0 hoặc 1",
-              "🔄 Khi n lớn, p nhỏ: Binomial(n,p) ≈ Poisson(λ=np)",
-              "📈 Khi n lớn: Binomial ≈ Normal(μ=np, σ²=np(1-p)) theo CLT"
+              "🎯 Sum of n independent Bernoulli: X = X₁ + X₂ + ... + Xₙ",
+              "📊 Symmetric when p=0.5, skewed when p is close to 0 or 1",
+              "🔄 When n large, p small: Binomial(n,p) ≈ Poisson(λ=np)",
+              "📈 When n large: Binomial ≈ Normal(μ=np, σ²=np(1-p)) by CLT"
             ]
           },
           examples: [
             {
               title: "🎯 Model Accuracy Testing",
-              description: "Test ML model trên test set",
+              description: "Test ML model on test set",
               params: { n: 20, p: 0.85 },
-              scenario: "Model có accuracy 85%. Test trên 20 samples.",
-              interpretation: "X = số predictions đúng. E[X] = 20×0.85 = 17. Likely get 15-19 correct.",
+              scenario: "Model has 85% accuracy. Test on 20 samples.",
+              interpretation: "X = number of correct predictions. E[X] = 20×0.85 = 17. Likely get 15-19 correct.",
               realData: "Real model: Train accuracy 90%, Test accuracy 85% → overfitting ~5%"
             },
             {
               title: "🎲 Quality Control",
-              description: "Kiểm tra sản phẩm lỗi",
+              description: "Inspect defective products",
               params: { n: 50, p: 0.02 },
               scenario: "Defect rate = 2%. Inspect 50 units.",
-              interpretation: "X = số products lỗi. E[X] = 50×0.02 = 1. Most likely 0-3 defects.",
+              interpretation: "X = number of defective products. E[X] = 50×0.02 = 1. Most likely 0-3 defects.",
               realData: "Six Sigma: 3.4 defects per million (p = 0.0000034)"
             },
             {
@@ -145,14 +145,14 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
               description: "Call center resolution rate",
               params: { n: 100, p: 0.75 },
               scenario: "75% calls resolved first time. Handle 100 calls/day.",
-              interpretation: "X = số calls resolved. E[X] = 75. Std dev = √(100×0.75×0.25) = 4.33.",
+              interpretation: "X = number of calls resolved. E[X] = 75. Std dev = √(100×0.75×0.25) = 4.33.",
               realData: "Industry benchmark: First Call Resolution 70-75%"
             },
             {
               title: "🎰 Ensemble Voting",
-              description: "5 models vote cho prediction",
+              description: "5 models vote for prediction",
               params: { n: 5, p: 0.80 },
-              scenario: "Mỗi model có 80% accuracy. Majority vote.",
+              scenario: "Each model has 80% accuracy. Majority vote.",
               interpretation: "Need ≥3 correct. P(X≥3) = P(3) + P(4) + P(5) ≈ 94%! Better than single model.",
               realData: "Random Forest: Combines 100-500 decision trees, each ~65% accurate → 90%+ ensemble accuracy"
             }
@@ -161,19 +161,19 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
             ml: [
               {
                 name: "🌲 Random Forest Voting",
-                description: "Combine predictions từ nhiều trees",
-                explanation: "Mỗi tree vote. Assume mỗi tree correct với prob p. Final prediction = majority vote theo Binomial.",
+                description: "Combine predictions from multiple trees",
+                explanation: "Each tree votes. Assume each tree correct with prob p. Final prediction = majority vote following Binomial.",
                 code: "votes = [tree.predict(x) for tree in forest]\nprediction = majority(votes)  # Binomial(n_trees, p)"
               },
               {
                 name: "🎯 Cross-Validation",
                 description: "Evaluate model stability",
-                explanation: "K-fold CV: Trong k runs, count bao nhiêu lần model performs well. Success count ~ Binomial.",
+                explanation: "K-fold CV: In k runs, count how many times model performs well. Success count ~ Binomial.",
                 code: "scores = cross_val_score(model, X, y, cv=10)\nn_good = sum(score > threshold)  # Binomial(10, p)"
               },
               {
                 name: "📊 Batch Inference",
-                description: "Predict cho batch of inputs",
+                description: "Predict for batch of inputs",
                 explanation: "Process n samples. Count correct predictions = Binomial(n, accuracy).",
                 code: "predictions = model.predict(batch)\ncorrect = sum(pred == true for pred, true in zip(predictions, labels))"
               }
@@ -190,11 +190,11 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
       case DiscreteDistribution.Poisson:
         return {
           theory: {
-            title: "Phân phối Poisson - Counting Rare Events",
-            definition: "Đếm số lần xảy ra sự kiện trong một khoảng thời gian/không gian cố định, khi events xảy ra độc lập với rate trung bình λ",
+            title: "Poisson Distribution - Counting Rare Events",
+            definition: "Counts number of events occurring in a fixed time/space interval, when events occur independently with average rate λ",
             formula: "P(X = k) = (λ^k × e^(-λ)) / k!",
             parameters: [
-              { name: "λ (lambda)", meaning: "Average rate - số events kỳ vọng", range: "λ > 0", example: "λ = 3 nghĩa là trung bình 3 events per time period" }
+              { name: "λ (lambda)", meaning: "Average rate - expected number of events", range: "λ > 0", example: "λ = 3 means average 3 events per time period" }
             ],
             statistics: [
               { name: "E[X]", formula: "λ", meaning: "Mean = λ" },
@@ -202,10 +202,10 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
               { name: "Mode", formula: "floor(λ)", meaning: "Most likely value" }
             ],
             keyInsights: [
-              "🎯 Model 'rare events' - events xảy ra randomly over time/space",
+              "🎯 Models 'rare events' - events occur randomly over time/space",
               "⚖️ Mean = Variance = λ (equidispersion property)",
               "🔄 Limit of Binomial: n→∞, p→0, np=λ constant",
-              "📈 Khi λ lớn (>20): Poisson ≈ Normal(μ=λ, σ²=λ)",
+              "📈 When λ large (>20): Poisson ≈ Normal(μ=λ, σ²=λ)",
               "⏱️ Time between events ~ Exponential(λ)"
             ]
           },
@@ -214,8 +214,8 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
               title: "📧 Email Arrivals",
               description: "Emails received per hour",
               params: { lambda: 5 },
-              scenario: "Trung bình 5 emails/hour. Count emails in next hour.",
-              interpretation: "X = số emails. E[X] = 5. Most likely values: 3-7 emails. P(X=0) = e^(-5) ≈ 0.7%.",
+              scenario: "Average 5 emails/hour. Count emails in next hour.",
+              interpretation: "X = number of emails. E[X] = 5. Most likely values: 3-7 emails. P(X=0) = e^(-5) ≈ 0.7%.",
               realData: "Office worker: ~120 emails/day = 5 emails/hour (assuming 8-hour workday)"
             },
             {
@@ -310,7 +310,7 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
           }`}
         >
           <span className="block sm:inline">📚</span>
-          <span className="hidden sm:inline"> Lý thuyết</span>
+          <span className="hidden sm:inline"> Theory</span>
         </button>
         <button
           onClick={() => setActiveTab('examples')}
@@ -321,7 +321,7 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
           }`}
         >
           <span className="block sm:inline">💡</span>
-          <span className="hidden sm:inline"> Ví dụ</span>
+          <span className="hidden sm:inline"> Examples</span>
         </button>
         <button
           onClick={() => setActiveTab('applications')}
@@ -346,12 +346,12 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
             </div>
 
             <div className="bg-blue-50 border-l-4 border-blue-500 p-3 sm:p-4 rounded">
-              <h4 className="font-semibold text-sm sm:text-base text-gray-800 mb-2">📐 Công thức:</h4>
+              <h4 className="font-semibold text-sm sm:text-base text-gray-800 mb-2">📐 Formula:</h4>
               <p className="font-mono text-sm sm:text-lg text-gray-800 break-all">{content.theory.formula}</p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm sm:text-base text-gray-800 mb-3">🎛️ Tham số (Parameters):</h4>
+              <h4 className="font-semibold text-sm sm:text-base text-gray-800 mb-3">🎛️ Parameters:</h4>
               <div className="space-y-2 sm:space-y-3">
                 {content.theory.parameters.map((param, idx) => (
                   <div key={idx} className="bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
@@ -369,7 +369,7 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-800 mb-3">📊 Thống kê (Statistics):</h4>
+              <h4 className="font-semibold text-gray-800 mb-3">📊 Statistics:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {content.theory.statistics.map((stat, idx) => (
                   <div key={idx} className="bg-purple-50 p-3 rounded-lg border border-purple-200">
@@ -395,7 +395,7 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
         {activeTab === 'examples' && (
           <div className="space-y-3 sm:space-y-4">
             <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-4">
-              Click vào ví dụ để tự động load parameters và chạy simulation!
+              Click on examples to automatically load parameters and run simulation!
             </p>
             {content.examples.map((example, idx) => (
               <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
@@ -467,12 +467,12 @@ const DiscreteEducationalPanel: React.FC<DiscreteEducationalPanelProps> = ({
             </div>
 
             <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-5 rounded-lg">
-              <h4 className="font-bold text-gray-800 mb-2">🎯 Tại sao quan trọng cho AI/ML?</h4>
+              <h4 className="font-bold text-gray-800 mb-2">🎯 Why Important for AI/ML?</h4>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li>✅ <strong>Hiểu uncertainty:</strong> ML models predict probabilities, not certainties</li>
-                <li>✅ <strong>Model evaluation:</strong> Understand performance metrics và confidence</li>
-                <li>✅ <strong>Feature engineering:</strong> Transform data dựa trên distribution properties</li>
-                <li>✅ <strong>Algorithm design:</strong> Nhiều ML algorithms built on probabilistic foundations</li>
+                <li>✅ <strong>Understanding uncertainty:</strong> ML models predict probabilities, not certainties</li>
+                <li>✅ <strong>Model evaluation:</strong> Understand performance metrics and confidence</li>
+                <li>✅ <strong>Feature engineering:</strong> Transform data based on distribution properties</li>
+                <li>✅ <strong>Algorithm design:</strong> Many ML algorithms built on probabilistic foundations</li>
               </ul>
             </div>
           </div>

@@ -64,8 +64,8 @@ const CLTSimulator: React.FC = () => {
           🧮 Central Limit Theorem (CLT) Simulator
         </h2>
         <p className="text-gray-700">
-          Khám phá định lý quan trọng nhất trong thống kê: Dù phân phối gốc như thế nào, 
-          <strong> trung bình mẫu sẽ luôn tiến đến phân phối chuẩn</strong> khi n đủ lớn!
+          Explore the most important theorem in statistics: No matter what the original distribution looks like, 
+          <strong> sample means will always approach a normal distribution</strong> when n is large enough!
         </p>
       </div>
 
@@ -73,22 +73,22 @@ const CLTSimulator: React.FC = () => {
         {/* Control Panel */}
         <div className="lg:col-span-1 bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">
-            Tham số mô phỏng
+            Simulation Parameters
           </h3>
 
           {/* Population Type */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-              Loại phân phối gốc
-              <Tooltip text="Chọn phân phối của tổng thể. CLT sẽ hoạt động bất kể phân phối gốc!">
+              Population Distribution Type
+              <Tooltip text="Choose the population distribution. CLT works regardless of the original distribution!">
                 <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
               </Tooltip>
             </label>
             <div className="space-y-2">
               {[
-                { value: 'uniform', label: 'Uniform (Đều)', desc: 'Phân phối đều' },
-                { value: 'exponential', label: 'Exponential', desc: 'Lệch phải' },
-                { value: 'skewed', label: 'Skewed', desc: 'Lệch mạnh' }
+                { value: 'uniform', label: 'Uniform', desc: 'Even distribution' },
+                { value: 'exponential', label: 'Exponential', desc: 'Right-skewed' },
+                { value: 'skewed', label: 'Skewed', desc: 'Heavily skewed' }
               ].map(option => (
                 <label key={option.value} className="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
                   <input
@@ -113,7 +113,7 @@ const CLTSimulator: React.FC = () => {
             <div className="flex justify-between items-center mb-2">
               <label className="text-sm font-medium text-gray-700 flex items-center">
                 μ (Population Mean)
-                <Tooltip text="Trung bình của tổng thể">
+                <Tooltip text="Mean of the population">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -135,7 +135,7 @@ const CLTSimulator: React.FC = () => {
             <div className="flex justify-between items-center mb-2">
               <label className="text-sm font-medium text-gray-700 flex items-center">
                 σ (Population Std Dev)
-                <Tooltip text="Độ lệch chuẩn của tổng thể">
+                <Tooltip text="Standard deviation of the population">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -157,7 +157,7 @@ const CLTSimulator: React.FC = () => {
             <div className="flex justify-between items-center mb-2">
               <label className="text-sm font-medium text-gray-700 flex items-center">
                 n (Sample Size)
-                <Tooltip text="Số phần tử trong mỗi mẫu. CLT hoạt động tốt khi n ≥ 30">
+                <Tooltip text="Number of elements in each sample. CLT works well when n ≥ 30">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -185,8 +185,8 @@ const CLTSimulator: React.FC = () => {
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
               <label className="text-sm font-medium text-gray-700 flex items-center">
-                Số mẫu lấy
-                <Tooltip text="Số lần lấy mẫu để tính trung bình">
+                Number of Samples
+                <Tooltip text="Number of times to sample for calculating means">
                   <InfoIcon className="w-4 h-4 text-gray-400 ml-2 cursor-pointer" />
                 </Tooltip>
               </label>
@@ -207,13 +207,13 @@ const CLTSimulator: React.FC = () => {
             onClick={runSimulation}
             className="w-full py-3 px-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-md hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md"
           >
-            🚀 Chạy mô phỏng CLT
+            🚀 Run CLT Simulation
           </button>
 
           {/* CLT Formula */}
           {result && (
             <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <h4 className="text-sm font-semibold text-gray-800 mb-2">📐 Công thức CLT:</h4>
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">📐 CLT Formula:</h4>
               <div className="text-xs text-gray-700 space-y-1">
                 <p className="font-mono">X̄ ~ N(μ, σ/√n)</p>
                 <p className="font-mono">
@@ -234,7 +234,7 @@ const CLTSimulator: React.FC = () => {
               {/* Sample Means Distribution */}
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  📊 Phân phối của Trung bình mẫu (Sample Means)
+                  📊 Distribution of Sample Means
                 </h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <ComposedChart data={prepareChartData()}>
@@ -249,7 +249,7 @@ const CLTSimulator: React.FC = () => {
                 </ResponsiveContainer>
                 <div className="mt-4 grid grid-cols-2 gap-4">
                   <div className="p-3 bg-blue-50 rounded-lg">
-                    <p className="text-xs text-gray-600">Mean của Sample Means:</p>
+                    <p className="text-xs text-gray-600">Mean of Sample Means:</p>
                     <p className="text-lg font-bold text-blue-600">
                       {calculateMean(result.sampleMeans).toFixed(2)}
                     </p>
@@ -278,7 +278,7 @@ const CLTSimulator: React.FC = () => {
               {/* Population Distribution */}
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  📉 Phân phối gốc của Tổng thể (Population)
+                  📉 Original Population Distribution
                 </h3>
                 <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={preparePopulationData()}>
@@ -290,19 +290,19 @@ const CLTSimulator: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
                 <p className="mt-3 text-sm text-gray-600 text-center">
-                  ⚠️ Lưu ý: Phân phối gốc <strong>KHÔNG cần phải chuẩn</strong> - CLT vẫn hoạt động!
+                  ⚠️ Note: The original distribution <strong>does NOT need to be normal</strong> - CLT still works!
                 </p>
               </div>
 
               {/* Educational Note */}
               <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-400 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-800 mb-2">💡 Ý nghĩa:</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">💡 Key Insights:</h4>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>✅ Sample means tạo thành <strong>phân phối chuẩn</strong> (hình chuông)</li>
-                  <li>✅ Dù population distribution lệch/không chuẩn</li>
-                  <li>✅ Mean của sample means ≈ μ (population mean)</li>
-                  <li>✅ Standard Error = σ/√n giảm khi n tăng</li>
-                  <li>🎯 <strong>Ứng dụng ML:</strong> Gradient descent, Bootstrap, Ensemble learning</li>
+                  <li>✅ Sample means form a <strong>normal distribution</strong> (bell curve)</li>
+                  <li>✅ Even if population distribution is skewed/non-normal</li>
+                  <li>✅ Mean of sample means ≈ μ (population mean)</li>
+                  <li>✅ Standard Error = σ/√n decreases as n increases</li>
+                  <li>🎯 <strong>ML Applications:</strong> Gradient descent, Bootstrap, Ensemble learning</li>
                 </ul>
               </div>
             </>
@@ -310,10 +310,10 @@ const CLTSimulator: React.FC = () => {
             <div className="bg-white p-12 rounded-lg shadow-md border border-gray-200 text-center">
               <div className="text-6xl mb-4">🧮</div>
               <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                Chưa có dữ liệu
+                No Data Yet
               </h3>
               <p className="text-gray-500">
-                Nhấn "Chạy mô phỏng CLT" để bắt đầu khám phá định lý quan trọng nhất trong thống kê!
+                Click "Run CLT Simulation" to start exploring the most important theorem in statistics!
               </p>
             </div>
           )}

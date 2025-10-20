@@ -102,8 +102,8 @@ const App: React.FC = () => {
         return (
           <>
             <div className="bg-primary-50 border-l-4 border-primary-500 text-primary-800 p-3 sm:p-4 rounded-md mb-4 sm:mb-8 shadow-sm" role="alert">
-              <p className="font-bold text-sm sm:text-base mb-1">🎲 Xác suất Rời rạc (Discrete Probability)</p>
-              <p className="text-xs sm:text-sm">Trong AI và Machine Learning, chúng ta xử lý sự bất định, không phải sự chắc chắn. Hiểu các phân phối này là bước đầu tiên để mô hình hóa sự ngẫu nhiên trong dữ liệu.</p>
+              <p className="font-bold text-sm sm:text-base mb-1">🎲 Discrete Probability</p>
+              <p className="text-xs sm:text-sm">In AI and Machine Learning, we deal with uncertainty, not certainty. Understanding these distributions is the first step to modeling randomness in data.</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 items-start">
               <div className="lg:col-span-1">
@@ -183,34 +183,34 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-light-bg font-sans">
-      <header className="bg-white shadow-sm">
+    <div className="min-h-screen bg-light-bg font-sans pb-20 sm:pb-0">
+      <header className="bg-white shadow-sm pt-0 sm:pt-16">
         <div className="max-w-7xl mx-auto py-3 sm:py-5 px-3 sm:px-6 lg:px-8">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-dark-text leading-tight">
             Probability & Statistics Simulator 🎲
           </h1>
           <p className="text-light-text mt-1 text-xs sm:text-sm">
-            Công cụ học tập tương tác về Xác suất và Thống kê - Nền tảng cho AI/ML
+            Interactive Learning Tool for Probability & Statistics - Foundation for AI/ML
           </p>
         </div>
       </header>
       
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
       
-      <main className="py-4 sm:py-10">
+      <main className="py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {renderContent()}
         </div>
       </main>
 
-      <footer className="bg-white border-t border-gray-200 mt-8 sm:mt-16">
-        <div className="max-w-7xl mx-auto py-6 sm:py-8 px-3 sm:px-6 lg:px-8">
+      <footer className="bg-white border-t border-gray-200 mt-8 sm:mt-16 mb-0 sm:mb-0">
+        <div className="max-w-7xl mx-auto py-6 sm:py-8 px-3 sm:px-6 lg:px-8 pb-20 sm:pb-8">
           <div className="text-center text-gray-600">
             <p className="mb-2 text-sm sm:text-base">
               Made with ❤️ for ML/AI learners
             </p>
             <p className="text-xs sm:text-sm text-gray-500">
-              Hiểu xác suất = Hiểu cách AI học và ra quyết định
+              Understanding probability = Understanding how AI learns and makes decisions
             </p>
           </div>
         </div>

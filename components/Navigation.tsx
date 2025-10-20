@@ -13,10 +13,10 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const sections = [
-    { id: DistributionType.Discrete, label: 'Rời rạc', icon: '🎲', shortLabel: 'Rời rạc' },
-    { id: DistributionType.Continuous, label: 'Liên tục', icon: '📈', shortLabel: 'Liên tục' },
-    { id: DistributionType.CLT, label: 'CLT', icon: '🧮', shortLabel: 'CLT' },
-    { id: DistributionType.Tools, label: 'Công cụ', icon: '🛠️', shortLabel: 'Tools' },
+    { id: DistributionType.Discrete, label: 'Discrete', icon: '🎲', shortLabel: 'Discrete' },
+    { id: DistributionType.Continuous, label: 'Continuous', icon: '📈', shortLabel: 'Continuous' },
+    { id: DistributionType.CLT, label: 'CLT Simulator', icon: '🧮', shortLabel: 'CLT' },
+    { id: DistributionType.Tools, label: 'Tools & Learning', icon: '🛠️', shortLabel: 'Tools' },
   ];
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
         `}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-16">
             {/* App title (compact on scroll) */}
             <div className={`transition-all duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
               <h2 className="text-sm font-semibold text-gray-800 hidden md:block">
@@ -138,7 +138,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
       </nav>
 
       {/* Spacer for fixed navigation */}
-      <div className="h-0 sm:h-14" />
+      <div className="h-0 sm:h-16" />
       
       {/* Mobile: Spacer for bottom nav */}
       <div className="h-16 sm:h-0" />
